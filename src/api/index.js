@@ -1,5 +1,3 @@
 import axiosInstance from './ajax'
-const Relogin = (username,password)=>{
-    return axiosInstance.post('/login',{username,password})
-}
-export default Relogin
+export const reqLogin = (username, password) => axiosInstance.post('/login', {username, password});
+export const reqValidateUser = (id) => axiosInstance.post('/validate/user', {id});

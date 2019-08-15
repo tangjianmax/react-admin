@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './pages/login'
 import Admin from './pages/admin'
 import './App.css';
-localStorage.removeItem('user')
 class App extends Component {
     render() {
         return <Router>

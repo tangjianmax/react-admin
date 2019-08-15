@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Form, Input, Icon, Button , message} from 'antd';
-import Relogin from '../../api'
+import {reqLogin} from '../../api/index'
 import logo from './logo.png';
 import data from '../../judge/user'
 import value1 from '../../judge/json'
@@ -27,7 +27,7 @@ class Login extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             const {username,password}= values;
-                Relogin(username,password)
+                 reqLogin(username,password)
                 .then((response)=>{
                     message.success('登录成功',5);
                     data.user=response;
