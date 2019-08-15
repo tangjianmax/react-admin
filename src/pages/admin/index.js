@@ -14,11 +14,13 @@ class Admin extends Component{
         isTrue:true,
         collapsed: false,
     };
-    onCollapse = collapsed => {
-        console.log(collapsed);
-        this.setState({ collapsed });
+    onCollapse = (collapsed)=> {
+        this.setState({
+            collapsed
+        });
     };
     render(){
+        const IsDisplay = this.state.collapsed===true? 'none':'block';
         const { Header, Content, Footer, Sider } = Layout;
         const { SubMenu } = Menu;
         if(!data.user._id) {
@@ -46,7 +48,7 @@ class Admin extends Component{
                     <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                         <div className="logo">
                             <img src={logo}/>
-                            <h1>硅谷后台</h1>
+                            <h1 style={{display:IsDisplay}}>硅谷后台</h1>
                         </div>
                         <LeftNav/>
                     </Sider>
