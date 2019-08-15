@@ -21,18 +21,18 @@ class Admin extends Component{
     render(){
         const { Header, Content, Footer, Sider } = Layout;
         const { SubMenu } = Menu;
-        if(!data.user._id){
-            if(!value1){
+        if(!data.user._id) {
+            if (!value1) {
                 return <Redirect to='/login'/>
-            }else{
-                const id  = value1._id;
+            } else {
+                const id = value1._id;
                 reqValidateUser(id)
-                    .then(()=>{
-                        data.user=value1;
+                    .then(() => {
+                        data.user = value1;
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.setState({
-                            isTrue:false
+                            isTrue: false
                         })
                     })
             }
@@ -40,26 +40,26 @@ class Admin extends Component{
         const flag = this.state.isTrue;
         if(!flag){
             return <Spin tip="Loading..."/>
-        }else{
+        }else {
             return (
-                <Layout style={{ minHeight: '100vh' }}>
+                <Layout style={{minHeight: '100vh'}}>
                     <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                        <div className="logo" >
+                        <div className="logo">
                             <img src={logo}/>
                             <h1>硅谷后台</h1>
                         </div>
-                    <LeftNav/>
+                        <LeftNav/>
                     </Sider>
                     <Layout>
-                        <Header style={{ background: '#fff', padding: 0 }} />
-                        <Content style={{ margin: '0 16px' }}>
-                            <Breadcrumb style={{ margin: '16px 0' }}>
+                        <Header style={{background: '#fff', padding: 0}}/>
+                        <Content style={{margin: '0 16px'}}>
+                            <Breadcrumb style={{margin: '16px 0'}}>
                                 <Breadcrumb.Item>User</Breadcrumb.Item>
                                 <Breadcrumb.Item>Bill</Breadcrumb.Item>
                             </Breadcrumb>
-                            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
+                            <div style={{padding: 24, background: '#fff', minHeight: 360}}>Bill is a cat.</div>
                         </Content>
-                        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                        <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
                     </Layout>
                 </Layout>
             );
