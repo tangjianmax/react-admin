@@ -11,7 +11,12 @@ const value1=JSON.parse(localStorage.getItem('user'));
 class Admin extends Component{
     //定义初始状态,判断后面的值，因为判断直接登录在localStorage上面更改的地址也可以登录，这样就是漏洞所以判断状态，如果在localStorage上面直接更改，则出现另一个状态
     state={
-        isTrue:true
+        isTrue:true,
+        collapsed: false,
+    };
+    onCollapse = collapsed => {
+        console.log(collapsed);
+        this.setState({ collapsed });
     };
     render(){
         const { Header, Content, Footer, Sider } = Layout;
