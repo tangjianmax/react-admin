@@ -4,7 +4,8 @@ import { Layout, Menu,Icon} from 'antd'
 import menuLis from '../../config'
 const { SubMenu } = Menu;
  class LeftNav extends Component{
-    constructor(props) {
+
+     constructor(props) {
         super(props); // 必须声明prop，否则this.props就是undefined
         this.selectedKey = this.props.location.pathname;
         this.menus = this.creatElements(this.selectedKey);
@@ -36,7 +37,6 @@ const { SubMenu } = Menu;
             }
         })
     };
-
     render() {
         return  <Menu theme="dark" defaultSelectedKeys={[this.selectedKey]}  defaultOpenKeys={[this.openKey]} mode="inline">
             {this.menus}
