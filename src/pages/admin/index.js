@@ -21,6 +21,7 @@ class Admin extends Component{
             collapsed
         });
     };
+
     render(){
         const IsDisplay = this.state.collapsed===true? 'none':'block';
         const { Header, Content, Footer, Sider } = Layout;
