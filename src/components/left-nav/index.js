@@ -7,8 +7,9 @@ const { SubMenu } = Menu;
 
      constructor(props) {
         super(props); // 必须声明prop，否则this.props就是undefined
-        this.selectedKey = this.props.location.pathname;
-        this.menus = this.creatElements(this.selectedKey);
+         this.selectedKey = this.props.location.pathname;
+         console.log(this.selectedKey);
+         this.menus = this.creatElements(this.selectedKey)
     }
     creatElement=(item)=>{
             return <Menu.Item key={item.key}>
@@ -24,11 +25,10 @@ const { SubMenu } = Menu;
                 return <SubMenu key={item.key} title={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
                     {
                         item.children.map((items)=>{
-                            if (path === items.key) {
-                                // 当前地址是二级菜单，展开一级菜单
-                                this.openKey = item.key;
+                            if(path===items.key){
+                               this.openKey=item.key
                             }
-                           return this.creatElement(items)
+                            return this.creatElement(items)
                         })
                     }
                 </SubMenu>
